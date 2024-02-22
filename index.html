@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html id="ext-gen6" class=" ext-strict x-viewport">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Online JSON Viewer and Formatter</title>
+      <meta name="description" content="JSON Viewer and Formatter - Convert JSON Strings to a Friendly Readable Format">
+      <meta name="keywords" content="json, json viewer, json formatter">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="files/ext-gray-all.css" media="all">
+      <script type="text/javascript" src="files/jsonviewer-all.js"></script>
+      <script>
+         function show_form()
+         {
+         	document.getElementById("footer").style.display = "none";
+         	document.getElementById("footer_form").style.visibility = "visible";
+         }
+         
+            function valid_input()
+            {      
+              var re3 = /^\s*([a-zA-Z0-9\._\-\+]{1,100})@([a-zA-Z0-9\.\-_]){1,100}\.([a-zA-Z]{2,7})\s*$/gi;
+              
+              email = document.getElementById("bemail");
+         
+         	
+         	emailvalue = email.value.toLowerCase();
+         	var pos1 = emailvalue.indexOf("test");
+         	var pos2 = emailvalue.indexOf("myemail@gmail.com");
+         	if(pos1>=0 || pos2>=0)
+         	{
+         		alert('Please enter a valid email address');
+         		return false;
+         	}
+         
+         
+              if (email.value.length>=0 && !email.value.match(re3)) 
+              {
+                alert("Please enter a valid email address");
+                email.focus();
+                return false;
+              }
+              
+              return true;
+            }
+      </script>
+      <style type="text/css">
+         .fform{
+         display: inline-block;
+         width:700px;
+         text-align: left;
+         margin-top:5px;
+         }
+         .fform a, .fform a:visited, .fform a:hover
+         {
+         color: #0070e0;
+         }
+         .fform a:hover
+         {
+         color: #142c8e;
+         }
+         .myinput, .mybutton, .getbutton, .paybutton{
+         float:left;
+         padding:13px 8px;
+         font-size:18px;
+         border-radius: 5px;
+         text-align: left;
+         margin:3px 5px 0 0;
+         -webkit-appearance:none;
+         -moz-appearance:none;
+         -ms-appearance:none;
+         -o-appearance:none;
+         appearance:none;
+         }
+         .mybutton, .getbutton, .paybutton{
+         width:195px;
+         cursor: pointer;
+         color:white;
+         background-color:#f1641e;
+         border:1px solid white;
+         text-align: center;
+         }
+         .mybutton:hover, .getbutton:hover, .paybutton:hover{
+         border:1px solid white;
+         background: rgb(254,172,94);
+         background: -moz-linear-gradient(90deg, rgba(254,172,94,1) 0%, rgba(199,121,208,1) 50%, rgba(75,192,200,1) 100%);
+         background: -webkit-linear-gradient(90deg, rgba(254,172,94,1) 0%, rgba(199,121,208,1) 50%, rgba(75,192,200,1) 100%);
+         background: linear-gradient(90deg, rgba(254,172,94,1) 0%, rgba(199,121,208,1) 50%, rgba(75,192,200,1) 100%);
+         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#feac5e",endColorstr="#4bc0c8",GradientType=1);
+         }
+         .myinput{
+         width:400px;
+         border:1px solid #f1641e;
+         }
+         .smalltext{
+         float:left;
+         width:450px;
+         font-size:14px;
+         margin-top:5px;
+         line-height: 16px;
+         }
+         .footer, .footer_form
+         {
+         position: fixed; 
+         bottom: 0px;
+         width: 100%; 
+         text-align: center;
+         font-family: Arial;	
+         /*
+         background: rgb(254,172,94);
+         background: -moz-linear-gradient(90deg, rgba(254,172,94,1) 0%, rgba(199,121,208,1) 50%, rgba(75,192,200,1) 100%);
+         background: -webkit-linear-gradient(90deg, rgba(254,172,94,1) 0%, rgba(199,121,208,1) 50%, rgba(75,192,200,1) 100%);
+         background: linear-gradient(90deg, rgba(254,172,94,1) 0%, rgba(199,121,208,1) 50%, rgba(75,192,200,1) 100%);
+         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#feac5e",endColorstr="#4bc0c8",GradientType=1);
+         */
+         background:linear-gradient(180deg,transparent,hsla(0,0%,95%,.288) 47.39%),linear-gradient(89.84deg,rgba(230,36,174,.15) .14%,rgba(94,58,255,.15) 16.96%,rgba(10,136,255,.15) 34.66%,rgba(75,191,80,.15) 50.12%,rgba(137,206,0,.15) 66.22%,rgba(239,183,0,.15) 82%,rgba(246,73,0,.15) 99.9%),linear-gradient(0deg,hsla(0,0%,100%,.15),hsla(0,0%,100%,.15));
+         }
+         .footer{
+         padding: 2px 0;	}
+         .footer_form
+         {
+         visibility: hidden;
+         padding: 2px 0;
+         height:140px;
+         }
+         .support
+         {
+         height:20px;
+         color: #222;
+         /*
+         background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
+         font-size: 16px;
+         line-height: 16px;
+         */
+         }
+         .support a, .support a:visited, .support a:hover
+         {
+         color: #00cc66;
+         font-weight: bold;
+         }
+         .support a:hover
+         {
+         color: #ffa400;
+         }
+         a.logout, a.logout:visited, a.logout:hover
+         {
+         color: black;
+         text-decoration:none;
+         }
+         a.logout:hover
+         {
+         color: #ff0000;
+         }
+         .error
+         {
+         /*background-color:#fce0e0;*/
+         color:#f14443;
+         font-weight: bold;
+         }
+         .success
+         {
+         /*background-color:#d8f2e6;*/
+         color:#0ab56b;
+         font-weight: bold;
+         }
+         .heart{
+         width: 16px;
+         height: 16px;
+         vertical-align: -2px;
+         fill: #f00;
+         }
+         .br0 {color:#090} .st0 {color:#36C} .sy0 {color:#393} .x-viewport,.x-viewport body{height:calc(100% - 72px);} body{background-color:#ededed;}
+      </style>
+    </head>
+   <body aria-hidden="false" class="  ext-safari ext-linux" id="ext-gen11">
+      <div id="ext-comp-1004" class="x-tab-panel" style="width: 1600px;">
+         <div class="x-tab-panel-header x-unselectable" id="ext-gen23" style="width: 1598px;">
+            <div class="x-tab-strip-wrap" id="ext-gen27">
+               <ul class="x-tab-strip x-tab-strip-top" id="ext-gen29">
+                  <li class="" id="ext-comp-1004__viewerPanel"><a class="x-tab-strip-close" onclick="return false;"></a><a class="x-tab-right" href="https://jsonviewer.stack.hu/#" onclick="return false;"><em class="x-tab-left"><span class="x-tab-strip-inner"><span class="x-tab-strip-text ">Viewer</span></span></em></a></li>
+                  <li class=" x-tab-strip-active" id="ext-comp-1004__textPanel"><a class="x-tab-strip-close" onclick="return false;"></a><a class="x-tab-right" href="https://jsonviewer.stack.hu/#" onclick="return false;"><em class="x-tab-left"><span class="x-tab-strip-inner"><span class="x-tab-strip-text ">Text</span></span></em></a></li>
+                  <li class="x-tab-edge" id="ext-gen30"></li>
+                  <div class="x-clear" id="ext-gen31"></div>
+               </ul>
+            </div>
+            <div class="x-tab-strip-spacer" id="ext-gen28"></div>
+         </div>
+         <div class="x-tab-panel-bwrap" id="ext-gen24">
+            <div class="x-tab-panel-body x-tab-panel-body-top" id="ext-gen25" style="width: 1598px; height: 536px;">
+               <div id="textPanel" class="x-panel x-panel-noborder" style="width: 1598px;">
+                  <div class="x-panel-bwrap" id="ext-gen38">
+                     <div class="x-panel-tbar x-panel-tbar-noheader x-panel-tbar-noborder" id="ext-gen39">
+                        <div id="ext-comp-1013" class="x-toolbar x-small-editor">
+                           <table cellspacing="0">
+                              <tbody>
+                                 <tr>
+                                    
+                                   
+                                    
+                                    <td id="ext-gen59">
+                                       <table border="0" cellpadding="0" cellspacing="0" class="x-btn-wrap x-btn" id="ext-comp-1016" style="width: auto;">
+                                          <tbody>
+                                             <tr>
+                                                <td class="x-btn-left"><i>&nbsp;</i></td>
+                                                <td class="x-btn-center"><em unselectable="on"><button class="x-btn-text" type="button" id="ext-gen61">Format</button></em></td>
+                                                <td class="x-btn-right"><i>&nbsp;</i></td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                    </td>
+                                    <td id="ext-gen67">
+                                       <table border="0" cellpadding="0" cellspacing="0" class="x-btn-wrap x-btn" id="ext-comp-1017" style="width: auto;">
+                                          <tbody>
+                                             <tr>
+                                                <td class="x-btn-left"><i>&nbsp;</i></td>
+                                                <td class="x-btn-center"><em unselectable="on"><button class="x-btn-text" type="button" id="ext-gen69">Remove white space</button></em></td>
+                                                <td class="x-btn-right"><i>&nbsp;</i></td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                    </td>
+                                    <td><span class="ytb-sep" id="ext-gen75"></span></td>
+                                    <td id="ext-gen76">
+                                       <table border="0" cellpadding="0" cellspacing="0" class="x-btn-wrap x-btn" id="ext-comp-1018" style="width: auto;">
+                                          <tbody>
+                                             <tr>
+                                                <td class="x-btn-left"><i>&nbsp;</i></td>
+                                                <td class="x-btn-center"><em unselectable="on"><button class="x-btn-text" type="button" id="ext-gen78">Clear</button></em></td>
+                                                <td class="x-btn-right"><i>&nbsp;</i></td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                    </td>
+                                    <td><span class="ytb-sep" id="ext-gen84"></span></td>
+                                    <td id="ext-gen85">
+                                       <table border="0" cellpadding="0" cellspacing="0" class="x-btn-wrap x-btn" id="ext-comp-1019" style="width: auto;">
+                                          <tbody>
+                                             <tr>
+                                                <td class="x-btn-left"><i>&nbsp;</i></td>
+                                                <td class="x-btn-center"><em unselectable="on"><button class="x-btn-text" type="button" id="ext-gen87">Load JSON data</button></em></td>
+                                                <td class="x-btn-right"><i>&nbsp;</i></td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                    </td>
+                                    <td style="width: 100%;">
+                                       <div class="ytb-spacer" id="ext-gen93"></div>
+                                    </td>
+                                    <td id="ext-gen94">
+                                       <table border="0" cellpadding="0" cellspacing="0" class="x-btn-wrap x-btn" id="ext-comp-1020" style="width: auto;">
+                                          <tbody>
+                                             <tr>
+                                                <td class="x-btn-left"><i>&nbsp;</i></td>
+                                                <td class="x-btn-center"></td>
+                                                <td class="x-btn-right"><i>&nbsp;</i></td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                     <div class="x-panel-body x-panel-body-noheader x-panel-body-noborder" id="ext-gen40" style="width: 1598px;"><textarea style="width: 1590px;font-family: monospace;" autocomplete="off" id="edit" name="edit" class=" x-form-textarea x-form-field x-form-empty-field"></textarea></div>
+                     <div class="x-panel-bbar x-panel-bbar-noborder" id="ext-gen41">
+                        <div id="ext-comp-1021" class="x-toolbar x-small-editor">
+                           <table cellspacing="0">
+                              <tbody>
+                                 <tr>
+                                    <td><span class="ytb-sep" id="ext-gen102"></span></td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <h1 style="margin-top:150px;">Online JSON Viewer</h1>
+      <div class="tab">
+         <h2>Example</h2>
+         <div>
+            <pre><span class="br0">{</span>
+    <span class="st0">"firstName"</span><span class="sy0">:</span> <span class="st0">"John"</span><span class="sy0">,</span>
+    <span class="st0">"lastName"</span><span class="sy0">:</span> <span class="st0">"Smith"</span><span class="sy0">,</span>
+    <span class="st0">"gender"</span><span class="sy0">:</span> <span class="st0">"man"</span><span class="sy0">,</span>
+    <span class="st0">"age"</span><span class="sy0">:</span> <span class="st0">32</span><span class="sy0">,</span>
+    <span class="st0">"address"</span><span class="sy0">:</span> <span class="br0">{</span>
+        <span class="st0">"streetAddress"</span><span class="sy0">:</span> <span class="st0">"21 2nd Street"</span><span class="sy0">,</span>
+        <span class="st0">"city"</span><span class="sy0">:</span> <span class="st0">"New York"</span><span class="sy0">,</span>
+        <span class="st0">"state"</span><span class="sy0">:</span> <span class="st0">"NY"</span><span class="sy0">,</span>
+        <span class="st0">"postalCode"</span><span class="sy0">:</span> <span class="st0">"10021"</span>
+    <span class="br0">}</span><span class="sy0">,</span>
+    <span class="st0">"phoneNumbers"</span><span class="sy0">:</span> <span class="br0">[</span>
+        <span class="br0">{</span> <span class="st0">"type"</span><span class="sy0">:</span> <span class="st0">"home"</span><span class="sy0">,</span> <span class="st0">"number"</span><span class="sy0">:</span> <span class="st0">"212 555-1234"</span> <span class="br0">}</span><span class="sy0">,</span>
+        <span class="br0">{</span> <span class="st0">"type"</span><span class="sy0">:</span> <span class="st0">"fax"</span><span class="sy0">,</span> <span class="st0">"number"</span><span class="sy0">:</span> <span class="st0">"646 555-4567"</span> <span class="br0">}</span>
+    <span class="br0">]</span>
+<span class="br0">}</span></pre>
+         </div>
+      </div>
+      <div class="footer" id="footer">
+      </div>
+      <div id="ext-comp-1001" class="x-tip" style="position: absolute; z-index: 20000; visibility: hidden; display: none;">
+         <div class="x-tip-tl">
+            <div class="x-tip-tr">
+               <div class="x-tip-tc">
+                  <div class="x-tip-header x-unselectable" id="ext-gen12"><span class="x-tip-header-text"></span></div>
+               </div>
+            </div>
+         </div>
+         <div class="x-tip-bwrap" id="ext-gen13">
+            <div class="x-tip-ml">
+               <div class="x-tip-mr">
+                  <div class="x-tip-mc">
+                     <div class="x-tip-body" id="ext-gen14" style="height: auto;"></div>
+                  </div>
+               </div>
+            </div>
+            <div class="x-tip-bl x-panel-nofooter">
+               <div class="x-tip-br">
+                  <div class="x-tip-bc"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <select class="x-grid-editor x-hide-display">
+         <option value="true">true</option>
+         <option value="false">false</option>
+      </select>
+   </body>
+</html>
